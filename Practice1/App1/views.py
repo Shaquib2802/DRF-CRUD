@@ -44,12 +44,12 @@ def addStudent(request):
                 return Response({'message':'This student for this student does not exist','response_code':400})
             student=Student.objects.filter(name = student_name)
             x=StudentSerializer(student,many=True)
-            return Response({'message':'Data get successfully','response_code':200, 'data':x.data})
+            return Response({'message':'Data Get  successfully','response_code':200, 'data':x.data})
         student = Student.objects.all()
         paginator = Paginator(student,limit)
         x = paginator.get_page(page)
         y= StudentSerializer(x,many = True)
-        return Response({'message':'Data get successfully','response_code':200, 'data':y.data,'page':page})
+        return Response({'message':'Data Fetch successfully','response_code':200, 'data':y.data,'page':page})
             
     
     if request.method=="PATCH":
